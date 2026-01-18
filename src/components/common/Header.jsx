@@ -1,4 +1,6 @@
 "use client";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   ShoppingCart,
@@ -8,11 +10,18 @@ import {
   Heart,
   Phone,
   Mail,
+  LogOut,
 } from "lucide-react";
 import Link from "next/link";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const logout = () => {
+    Cookies.remove("isLoggedIn");
+    router.push("/login");
+  };
 
   const menus = (
     <>
@@ -22,7 +31,7 @@ const Header = () => {
       <Link href="/products" className="text-gray-700 hover:text-blue-600">
         Items
       </Link>
-      <Link href="/add" className="text-gray-700 hover:text-blue-600">
+      <Link href="/add-products" className="text-gray-700 hover:text-blue-600">
         Add Items
       </Link>
     </>
@@ -73,6 +82,11 @@ const Header = () => {
                 alt="userImage1"
               />
               <div className="absolute bottom-2 right-0 h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+            <div>
+              <button onClick={logout}>
+                <LogOut className="text-red-600 cursor-pointer" />
+              </button>
             </div>
           </nav>
 
