@@ -46,14 +46,11 @@ const Header = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <d className="flex gap-1 items-center">
-            <div className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-600">
-              N
-            </div>
+          <div className="flex gap-1 items-center">
             <Link href={"/"} className="text-4xl font-bold text-blue-600">
               NexFy
             </Link>
-          </d>
+          </div>
 
           <nav className="hidden md:flex items-center space-x-6">
             {menus}
