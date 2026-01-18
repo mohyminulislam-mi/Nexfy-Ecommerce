@@ -33,7 +33,7 @@ const Header = () => {
       </Link>
       <Link href="/add-products" className="text-gray-700 hover:text-blue-600">
         Add Items
-      </Link>
+      </Link> 
     </>
   );
 

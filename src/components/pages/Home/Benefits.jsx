@@ -40,7 +40,8 @@ const Benefits = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center">
+        {/* card details  */}
+        <div className="flex flex-col md:flex-row items-center mt-10">
           <Image
             src="/images/card-image.png"
             width={700}
@@ -69,10 +70,10 @@ const Benefits = () => {
               </div>
               <div className="space-y-2">
                 <h3 className="text-base font-semibold text-slate-700">
-                  Real-Time Analytics
+                  Bank Support
                 </h3>
                 <p className="text-sm text-slate-600">
-                  Get instant insights into your finances with live dashboards.
+                  Instant payment with Bank account or card. USDT or BDT
                 </p>
               </div>
             </div>

@@ -24,9 +24,9 @@ export default function ItemsPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-2xl">
+      <div className="bg-white shadow-2xl rounded-2xl p-8 my-6 w-full max-w-2xl">
         <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-          Product Details Form
+          Add Your Product
         </h2>
 
         <form
