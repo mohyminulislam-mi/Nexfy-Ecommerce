@@ -13,7 +13,7 @@ import { Star, Filter } from "lucide-react";
 import Product from "@/app/products/_components/Cards/Product";
 
 async function getPosts() {
-  const res = await fetch("http://localhost:3000/products/", {
+  const res = await fetch("https://nex-server-one.vercel.app/products/", {
     cache: "no-store",
   });
 

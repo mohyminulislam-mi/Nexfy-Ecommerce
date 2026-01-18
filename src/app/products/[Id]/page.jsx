@@ -54,7 +54,9 @@ const ProductDetails = () => {
 
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/products/${id}`);
+        const res = await fetch(
+          `https://nex-server-one.vercel.app/products/${id}`,
+        );
         if (!res.ok) throw new Error("Failed to fetch data");
         const data = await res.json();
         setProduct(data);
