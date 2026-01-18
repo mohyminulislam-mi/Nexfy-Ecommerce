@@ -101,6 +101,8 @@ export default function ProductsPage() {
     currentPage * ITEMS_PER_PAGE,
   );
 
+
+  
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
