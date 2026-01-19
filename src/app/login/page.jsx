@@ -17,17 +17,26 @@ export default function Login() {
     const MOCK_PASSWORD = "password123";
 
     if (email === MOCK_EMAIL && password === MOCK_PASSWORD) {
-      // Store auth status in a cookie (expires in 1 day)
+      const user = {
+        name: "Mohyminul Islam",
+        email: MOCK_EMAIL,
+        image:
+          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200",
+      };
+
       Cookies.set("isLoggedIn", "true", { expires: 1 });
-      router.push("/items");
-    } else {
-      setError("Invalid email or password");
+      Cookies.set("user", JSON.stringify(user), { expires: 1 });
+
+      router.push("/add-products");
     }
   };
 
   return (
     <div className="flex items-center justify-center w-full px-4 my-10">
-      <form onSubmit={handleLogin} className="flex w-full flex-col max-w-96">
+      <form
+        onSubmit={handleLogin}
+        className="flex w-full flex-col max-w-96 shadow-2xl p-7"
+      >
         <h2 className="text-4xl font-medium text-gray-900">Sign in</h2>
 
         <p className="mt-4 text-base text-gray-500/90">

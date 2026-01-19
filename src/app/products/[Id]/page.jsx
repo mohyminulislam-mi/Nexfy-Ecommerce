@@ -60,7 +60,7 @@ const ProductDetails = () => {
         if (!res.ok) throw new Error("Failed to fetch data");
         const data = await res.json();
         setProduct(data);
-        setThumbnail(data?.images?.[0] || ""); // Set first image as default
+        setThumbnail(data?.images?.[0] || "");
       } catch (error) {
         console.error(error);
         toast.error("Error loading product");

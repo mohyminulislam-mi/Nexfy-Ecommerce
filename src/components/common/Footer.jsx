@@ -2,6 +2,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import React from "react";
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -9,7 +11,15 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-5xl font-bold mb-4 text-blue-400">NexFy</h3>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/logo.png"
+                alt="Company Logo"
+                width={160} 
+                height={40} 
+                priority
+              />
+            </Link>
             <p className="text-gray-400 mb-4">
               Nexfy a modern E-com platform. Save your time , Buy quality
               products. hassle free shopping!

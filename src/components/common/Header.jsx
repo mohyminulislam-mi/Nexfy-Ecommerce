@@ -1,10 +1,10 @@
 "use client";
 import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import {
   ShoppingCart,
-  Search,
   Menu,
   X,
   Heart,
@@ -12,15 +12,26 @@ import {
   Mail,
   LogOut,
 } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const router = useRouter();
 
-  const logout = () => { 
+  useEffect(() => {
+    const isLoggedIn = Cookies.get("isLoggedIn");
+    const userData = Cookies.get("user");
+
+    if (isLoggedIn && userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const logout = () => {
     Cookies.remove("isLoggedIn");
-    router.push("/login");
+    Cookies.remove("user");
+    window.location.href = "/login";
   };
 
   const menus = (
@@ -33,7 +44,7 @@ const Header = () => {
       </Link>
       <Link href="/add-products" className="text-gray-700 hover:text-blue-600">
         Add Items
-      </Link> 
+      </Link>
     </>
   );
 
@@ -56,8 +67,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex gap-1 items-center">
-            <Link href={"/"} className="text-4xl font-bold text-blue-600">
-              NexFy
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/logo.png"
+                alt="Company Logo"
+                width={160} // Changed from 4 to 160
+                height={40} // Changed from 4 to 40
+                priority // Good practice for logos
+              />
             </Link>
           </div>
 
@@ -75,18 +92,31 @@ const Header = () => {
                 3
               </span>
             </button>
-            <div className="relative">
-              <img
-                className="h-12 w-12 rounded-full"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200"
-                alt="userImage1"
-              />
-              <div className="absolute bottom-2 right-0 h-3 w-3 rounded-full bg-green-500"></div>
-            </div>
             <div>
-              <button onClick={logout}>
-                <LogOut className="text-red-600 cursor-pointer" />
-              </button>
+              {user ? (
+                <div className="flex items-center gap-3">
+                  <div className="relative">
+                    <img
+                      className="h-12 w-12 rounded-full"
+                      src={user.image}
+                      alt="user"
+                    />
+
+                    <div className="absolute bottom-2 right-0 h-3 w-3 rounded-full bg-green-500"></div>
+                  </div>
+
+                  <button onClick={logout}>
+                    <LogOut className="text-red-600 cursor-pointer" />
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href="/login"
+                  className="bg-blue-500 text-white py-2.5 px-3 rounded"
+                >
+                  Login
+                </Link>
+              )}
             </div>
           </nav>
 
