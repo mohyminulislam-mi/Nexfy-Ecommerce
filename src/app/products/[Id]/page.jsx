@@ -69,7 +69,7 @@ const ProductDetails = () => {
       }
     };
 
-    if (id) fetchProduct();
+  fetchProduct();
   }, [id]);
 
   // react-hook-form setup
@@ -305,7 +305,7 @@ const ProductDetails = () => {
                         />
                       ))}
                     </div>
-                    <p className="text-gray-700 italic">"{review.text}"</p>
+                    <p className="text-gray-700 italic">{review.text}</p>
                   </div>
                 ))}
               </div>
