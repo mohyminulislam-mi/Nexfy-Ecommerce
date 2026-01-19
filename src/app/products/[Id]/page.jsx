@@ -15,15 +15,15 @@ import Rating from "react-rating";
 import Loading from "@/components/Loading";
 
 // Mock auth hook
-const useAuth = () => {
-  return {
-    user: {
-      photoURL: "https://i.ibb.co/vxmbWxr3/Mohyminul-Islam-small.png",
-      displayName: "Mohyminul Islam",
-      email: "mohyminulislam@gmail.com",
-    },
-  };
-};
+// const useAuth = () => {
+//   return {
+//     user: {
+//       photoURL: "https://i.ibb.co/vxmbWxr3/Mohyminul-Islam-small.png",
+//       displayName: "Mohyminul Islam",
+//       email: "mohyminulislam@gmail.com",
+//     },
+//   };
+// };
 
 const ProductDetails = () => {
   const params = useParams();
