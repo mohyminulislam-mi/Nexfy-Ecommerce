@@ -2,8 +2,7 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   ShoppingCart,
   Menu,
@@ -27,7 +26,11 @@ const Header = () => {
       const userData = Cookies.get("user");
 
       if (isLoggedIn && userData) {
-        setUser(JSON.parse(userData));
+        try {
+          setUser(JSON.parse(userData));
+        } catch (e) {
+          console.error("Failed to parse user cookie");
+        }
       } else {
         setUser(null);
       }
@@ -79,9 +82,9 @@ const Header = () => {
               <Image
                 src="/images/logo.png"
                 alt="Company Logo"
-                width={160} // Changed from 4 to 160
-                height={40} // Changed from 4 to 40
-                priority // Good practice for logos
+                width={160}
+                height={40} 
+                priority
               />
             </Link>
           </div>
