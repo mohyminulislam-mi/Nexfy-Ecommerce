@@ -34,7 +34,7 @@ const Header = () => {
     };
 
     checkUser();
-  }, [pathname]);
+  }, [pathname, router]);
 
   const logout = () => {
     Cookies.remove("isLoggedIn");
