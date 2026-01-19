@@ -1,6 +1,6 @@
 import React from "react";
 
-const Skeleton = () => {
+const Loading = () => {
   return (
     <div className="flex gap-5 items-center justify-center my-20">
       <div className="flex w-52 flex-col gap-4">
@@ -31,4 +31,4 @@ const Skeleton = () => {
   );
 };
 
-export default Skeleton;
+export default Loading;
