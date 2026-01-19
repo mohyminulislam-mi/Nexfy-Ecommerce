@@ -17,6 +17,12 @@ async function getPosts() {
     cache: "no-store",
   });
 
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, 3000);
+  });
+
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -101,8 +107,6 @@ export default function ProductsPage() {
     currentPage * ITEMS_PER_PAGE,
   );
 
-
-  
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
