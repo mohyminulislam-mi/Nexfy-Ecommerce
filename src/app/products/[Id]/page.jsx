@@ -27,9 +27,9 @@ const useAuth = () => {
 
 const ProductDetails = () => {
   const params = useParams();
-  console.log('params', params);
-  
-  const id = params?.id;
+  console.log("params", params);
+
+  const id = params?.Id;
   const { user } = useAuth();
 
   // State Management
@@ -71,7 +71,7 @@ const ProductDetails = () => {
       }
     };
 
-  fetchProduct();
+    fetchProduct();
   }, [id]);
 
   // react-hook-form setup
