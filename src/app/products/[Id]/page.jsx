@@ -27,8 +27,6 @@ const useAuth = () => {
 
 const ProductDetails = () => {
   const params = useParams();
-  console.log("params", params);
-
   const id = params?.Id;
   const { user } = useAuth();
 

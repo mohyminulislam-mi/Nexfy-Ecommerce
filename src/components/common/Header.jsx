@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   ShoppingCart,
   Menu,
@@ -17,16 +18,23 @@ import Image from "next/image";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
-    const isLoggedIn = Cookies.get("isLoggedIn");
-    const userData = Cookies.get("user");
+    const checkUser = () => {
+      const isLoggedIn = Cookies.get("isLoggedIn");
+      const userData = Cookies.get("user");
 
-    if (isLoggedIn && userData) {
-      setUser(JSON.parse(userData));
-    }
-  }, []);
+      if (isLoggedIn && userData) {
+        setUser(JSON.parse(userData));
+      } else {
+        setUser(null);
+      }
+    };
+
+    checkUser();
+  }, [pathname]);
 
   const logout = () => {
     Cookies.remove("isLoggedIn");
