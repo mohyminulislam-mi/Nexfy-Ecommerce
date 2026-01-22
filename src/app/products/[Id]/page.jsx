@@ -27,12 +27,11 @@ const useAuth = () => {
 
 const ProductDetails = () => {
   const params = useParams();
-  const id = params?.Id;
+  const id = params?.id;
   const { user } = useAuth();
 
   // State Management
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
   // const [thumbnail, setThumbnail] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -108,12 +107,6 @@ const ProductDetails = () => {
     toast.info("Redirecting to checkout...");
   };
 
-  if (loading)
-    return (
-      <div className="text-center py-20">
-        <Loading />{" "}
-      </div>
-    );
   if (!product)
     return <div className="text-center py-20">Product not found</div>;
 

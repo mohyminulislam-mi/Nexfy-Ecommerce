@@ -26,8 +26,8 @@ export default function Login() {
 
       Cookies.set("isLoggedIn", "true", { expires: 1 });
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
-
       router.push("/add-products");
+      console.log("router", router);
     }
   };
 
@@ -52,7 +52,7 @@ export default function Login() {
             placeholder="Please enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            fullWidth
+            // fullWidth
             required
           />
         </div>
