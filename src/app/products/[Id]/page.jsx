@@ -27,8 +27,7 @@ const useAuth = () => {
 
 const ProductDetails = () => {
   const params = useParams();
-  const id = params?.id;
-  const { user } = useAuth();
+  const id = params?.Id;
 
   // State Management
   const [product, setProduct] = useState(null);
@@ -63,11 +62,8 @@ const ProductDetails = () => {
       } catch (error) {
         console.error(error);
         toast.error("Error loading product");
-      } finally {
-        setLoading(false);
       }
     };
-
     fetchProduct();
   }, [id]);
 
