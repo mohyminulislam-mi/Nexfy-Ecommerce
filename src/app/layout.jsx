@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Nexfy | Hassle free shopping",
+  default: {
+    title: "Nexfy | Hassle free shopping",
+    template: "%s | Nexfy",
+  },
   description:
     "Nexfy a modern E-com platform. Save your time , Buy  quality products. hassle free shopping! ",
 };

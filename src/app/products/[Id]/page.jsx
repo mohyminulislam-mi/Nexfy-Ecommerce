@@ -12,7 +12,6 @@ import { Star } from "lucide-react";
 import { MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md";
 import { FaQuoteLeft } from "react-icons/fa";
 import Rating from "react-rating";
-import Loading from "@/components/Loading";
 
 // Mock auth hook
 const useAuth = () => {
@@ -61,7 +60,6 @@ const ProductDetails = () => {
         setThumbnail(data?.images?.[0] || "");
       } catch (error) {
         console.error(error);
-        toast.error("Error loading product");
       }
     };
     fetchProduct();

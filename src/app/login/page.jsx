@@ -26,8 +26,7 @@ export default function Login() {
 
       Cookies.set("isLoggedIn", "true", { expires: 1 });
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
-      router.push("/add-products");
-      console.log("router", router);
+      window.location.href = "/add-products";
     }
   };
 
